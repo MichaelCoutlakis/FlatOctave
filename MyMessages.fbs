@@ -7,6 +7,9 @@ namespace MyMessages;
 table MessageString
 {
 	m_String:string;
+	m_Vector:[float];
+	m_Int32:int32;
+	m_float:float;
 }
 
 

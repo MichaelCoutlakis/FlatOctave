@@ -108,6 +108,9 @@
     <ClCompile Include="..\..\..\flatbuffers\flatbuffers\grpc\src\compiler\swift_generator.cc">
       <Filter>grpc</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_octave.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\flatbuffers\flatbuffers\include\flatbuffers\base.h">

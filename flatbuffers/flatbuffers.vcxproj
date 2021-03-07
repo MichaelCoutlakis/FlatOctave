@@ -39,6 +39,7 @@
     <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_kotlin.cpp" />
     <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_lobster.cpp" />
     <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_lua.cpp" />
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_octave.cpp" />
     <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_php.cpp" />
     <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_python.cpp" />
     <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_rust.cpp" />

@@ -14,6 +14,9 @@ int main()
 	//Message1T MsgTx;
 	MessageStringT MsgTx;
 	MsgTx.m_String = "Hello, flat Octave world!";
+	MsgTx.m_Vector = { 11, 22, 33, 44 };
+	MsgTx.m_Int32 = 42;
+	MsgTx.m_float = 3.14159f;
 	//MsgTx.m_int = 42;
 	//MsgTx.m_float = 3.14159f;
 	//MsgTx.m_vector = { 1.f, 2.f, 3.f, 4.f };
