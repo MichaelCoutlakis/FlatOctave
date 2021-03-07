@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source\src">
+      <UniqueIdentifier>{01972c0b-0753-4ee6-8351-969b229db7db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\include">
+      <UniqueIdentifier>{24a4bc77-8c73-43d0-89d9-6e6744a025d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="grpc">
+      <UniqueIdentifier>{28f7d38d-5681-4896-81ba-7170fe5be143}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\code_generators.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\flatc.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\flatc_main.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_cpp.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_csharp.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_dart.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_fbs.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_go.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_grpc.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_java.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_js_ts.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_json_schema.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_kotlin.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_lobster.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_lua.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_php.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_python.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_rust.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_swift.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_gen_text.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\idl_parser.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\reflection.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\src\util.cpp">
+      <Filter>Source\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\grpc\src\compiler\cpp_generator.cc">
+      <Filter>grpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\grpc\src\compiler\go_generator.cc">
+      <Filter>grpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\grpc\src\compiler\java_generator.cc">
+      <Filter>grpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\grpc\src\compiler\python_generator.cc">
+      <Filter>grpc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\flatbuffers\flatbuffers\grpc\src\compiler\swift_generator.cc">
+      <Filter>grpc</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\include\flatbuffers\base.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\include\flatbuffers\code_generators.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\include\flatbuffers\flatbuffers.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\include\flatbuffers\flatc.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\include\flatbuffers\flexbuffers.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\include\flatbuffers\grpc.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\include\flatbuffers\hash.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\include\flatbuffers\idl.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\include\flatbuffers\minireflect.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\include\flatbuffers\reflection.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\include\flatbuffers\reflection_generated.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\include\flatbuffers\registry.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\include\flatbuffers\stl_emulation.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\include\flatbuffers\util.h">
+      <Filter>Header Files\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\grpc\src\compiler\config.h">
+      <Filter>grpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\grpc\src\compiler\cpp_generator.h">
+      <Filter>grpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\grpc\src\compiler\go_generator.h">
+      <Filter>grpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\grpc\src\compiler\java_generator.h">
+      <Filter>grpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\grpc\src\compiler\python_generator.h">
+      <Filter>grpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\grpc\src\compiler\python_private_generator.h">
+      <Filter>grpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\grpc\src\compiler\schema_interface.h">
+      <Filter>grpc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\flatbuffers\flatbuffers\grpc\src\compiler\swift_generator.h">
+      <Filter>grpc</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

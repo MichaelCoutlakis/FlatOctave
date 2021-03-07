@@ -1,0 +1,13 @@
+// Simple flatbuffers schema:
+
+namespace MyMessages;
+
+
+// Message with string only:
+table MessageString
+{
+	m_String:string;
+}
+
+
+root_type MessageString;
