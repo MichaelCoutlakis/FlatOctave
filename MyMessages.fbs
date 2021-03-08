@@ -2,6 +2,11 @@
 
 namespace MyMessages;
 
+table Nested
+{
+	m_NestedInt:int32;
+}
+
 
 // Message with string only:
 table MessageString
@@ -10,6 +15,7 @@ table MessageString
 	m_Vector:[float];
 	m_Int32:int32;
 	m_float:float;
+	m_NestedTable:Nested;
 }
 
 
