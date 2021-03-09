@@ -13,7 +13,7 @@ function NestedTable = OpenFlatBuffersReference_ReadNestedTable(b, idxBufStart)
 
 
   % This is the root table in Octave's index into the bytes
-  idxRT = offRT + + idxBufStart
+  idxRT = offRT + idxBufStart
   offVT = typecast(b(idxRT:idxRT + 3), "int32")
   % The start of the Vtable for this root table (in actual Octave Index)
   idxVT = int32(idxRT) - offVT

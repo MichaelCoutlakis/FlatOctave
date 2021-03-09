@@ -25,4 +25,5 @@ b = uint8(b);
 
 % Load the scrip:
 MyMessages_generated
-Msg = MessageStringT_Unpack(b(5:end))
+% Note: 5 is the index of the buffer start after the size prefix
+Msg = MessageStringT_Unpack(b, 5)
