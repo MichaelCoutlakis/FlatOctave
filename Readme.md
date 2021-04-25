@@ -14,7 +14,7 @@ Additionally, Octave provides sockets. Flatbuffers provides a mechanism of trans
 
 ## Limitiations
 
-Little Endian machines are assumed. I don't expect that I would ever need Big Endian support and you probably won't either so am not really to bothered to provide it.
+Little Endian machines are assumed. I don't expect that I would ever need Big Endian support and you probably won't either so I'm not really too bothered to provide it.
 
 ## Example
 
@@ -34,7 +34,7 @@ flatc --cpp --gen-object-api -o C:\Git\Michael\Octave\FlatOctave -I C:\Git\Micha
 Run the FlatOctave Octave script compiler on the Schema
 
 
-Use the Octave script :)
+Use the Octave script :smiley:
 
 ## Implemented Functionality
 The following functionality has been implemented:

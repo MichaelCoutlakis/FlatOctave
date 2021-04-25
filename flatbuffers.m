@@ -37,3 +37,44 @@ endfunction
 function u = ReadUint16(b)
   u = typecast(b(1:2), "uint16");
 endfunction
+
+# Write a uint16:
+function B = WriteUint16(u)
+  B = typecast(uint16(u), "uint8");
+endfunction
+
+# Write a uint32
+function B = WriteUint32(u)
+  B = typecast(uint32(u), "uint8");
+endfunction
+
+# Write and int
+function B = WriteInt32(i32)
+  B = typecast(int32(i32), "uint8");
+endfunction
+
+# Write a string:
+function B = WriteString(str)
+  bCol = iscolumn(str);
+  if(bCol)
+    str = str';
+  end
+  # First 4 bytes is the offset to the start. Most cases it's just 4?
+  B = WriteUint32(4);
+  # Next 4 bytes is the length:
+  B = [B, WriteUint32(length(str))];
+  # Now the string characters: There's always a null padding at the end:
+  B = [B, uint8(str), uint8(0)];
+  # Make sure the total length is a multiple of 4, if not zero pad:
+  if((r = rem(length(B), 4)) ~= 0)
+    B = [B, uint8(zeros(1, 4 - r))];
+  end
+  if(bCol)
+    B = B';
+  end
+endfunction
+
+# Write a vtable to a buffer:
+function Bytes = WriteVT(VT)
+  Bytes = uint8(0);
+endfunction
