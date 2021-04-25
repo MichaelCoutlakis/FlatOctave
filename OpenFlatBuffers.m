@@ -12,7 +12,7 @@ clc
 % Equivalent of load module I guess, load all the functions in the flatbuffers.m script:
 flatbuffers
 
-Directory = "C:\\Git\\Michael\\Octave\\FlatOctave\\WriteMyMessageFlatbuffer";
+Directory = "C:\\Git\\Michael\\Octave\\FlatOctave\\WriteFlatbufferTestMessages";
 FileName = "FlatMessage.fb";
 FullFileName = [Directory, "\\", FileName];
 

@@ -11,7 +11,7 @@ close all
 clear all
 clc
 
-Directory = "C:\\Git\\Michael\\Octave\\FlatOctave\\WriteMyMessageFlatbuffer";
+Directory = "C:\\Git\\Michael\\Octave\\FlatOctave\\WriteFlatbufferTestMessages";
 FileName = "FlatMessage.fb";
 FullFileName = [Directory, "\\", FileName];
 

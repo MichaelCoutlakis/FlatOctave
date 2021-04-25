@@ -2,30 +2,18 @@
 
 namespace TestMessages;
 
-table Nested
-{
-	m_NestedInt:int32;
-}
-
-
-table DataStructure
-{
-	m_NestedTable:Nested;
-	m_float:float;
-	m_String:string;
-	m_Int32:int32;
-}
+//table Nested
+//{
+//	m_NestedInt:int32;
+//	m_String:string;
+//}
 
 // Test Message with various fields:
 table TestMessage
 {
 	m_Int32:int32;
-	m_float:float;
 	m_String:string;
-	m_Vector:[float];
-	m_vstrStrings:[string];
-	m_NestedTable:Nested;
-	m_vTables:[DataStructure];
+	//m_Nested:Nested;
 }
 
 

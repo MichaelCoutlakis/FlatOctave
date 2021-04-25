@@ -41,13 +41,13 @@ The following functionality has been implemented:
 
 | Flatbuffer Type | Read Flatbuffer into Octave | Write Flatbuffer from Octave |
 |---|:---:|:---:|
-|int| :heavy_check_mark: | :x: |
+|int| :heavy_check_mark: | :heavy_check_mark: |
 |float| :heavy_check_mark: | :x: |
-|string| :heavy_check_mark: | :x: |
+|string| :heavy_check_mark: | :heavy_check_mark: |
 |enum | :x: | :x: |
 |:[float] (vector&lt;float&gt;)| :heavy_check_mark: | :x: |
 |:[string] (vector&lt;string&gt;)| :heavy_check_mark: | :x: |
-|Table| :heavy_check_mark: | :x:|
+|Table| :heavy_check_mark: | :heavy_check_mark:|
 |:[Table] (vector&lt;Table&gt;)| :heavy_check_mark: | :x: |
 
 

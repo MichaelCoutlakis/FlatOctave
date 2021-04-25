@@ -59,10 +59,10 @@ function B = WriteString(str)
   if(bCol)
     str = str';
   end
-  # First 4 bytes is the offset to the start. Most cases it's just 4?
-  B = WriteUint32(4);
+##  # First 4 bytes is the offset to the start. Most cases it's just 4?
+##  B = WriteUint32(4);
   # Next 4 bytes is the length:
-  B = [B, WriteUint32(length(str))];
+  B = WriteUint32(length(str));
   # Now the string characters: There's always a null padding at the end:
   B = [B, uint8(str), uint8(0)];
   # Make sure the total length is a multiple of 4, if not zero pad:
