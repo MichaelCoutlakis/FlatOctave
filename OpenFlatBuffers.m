@@ -24,6 +24,6 @@ b = fread(fid, FileLength);
 b = uint8(b);
 
 % Load the scrip:
-MyMessages_generated
+TestMessages_generated
 % Note: 5 is the index of the buffer start after the size prefix
-Msg = MessageStringT_Unpack(b, 5)
+Msg = TestMessageT_Unpack(b, 5)

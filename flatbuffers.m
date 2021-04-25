@@ -9,8 +9,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 1;
 
-% Another way to get multiple functions in one file would have been classdef, but whenever I use that it output to the Octave console
-% seems to stop which is mind numbingly frustrating.
+# Another way to get multiple functions in one file would have been classdef,
+# but whenever I use that it output to the Octave console seems to stop which is
+# mind numbingly frustrating.
 
 
 % Read an inline field, returning the default value if it's not there:

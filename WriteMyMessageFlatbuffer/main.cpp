@@ -5,21 +5,40 @@
 
 
 
-#include "../MyMessages_generated.h"
+#include "../TestMessages_generated.h"
 
 int main()
 {
-	using namespace MyMessages;
+	using namespace TestMessages;
 	// Create a message to transmit and populate it with some data:
 	//Message1T MsgTx;
-	MessageStringT MsgTx;
-	MsgTx.m_String = "Hello, flat Octave world!";
-	MsgTx.m_Vector = { 11, 22, 33, 44 };
+	TestMessageT MsgTx;
 	MsgTx.m_Int32 = 42;
 	MsgTx.m_float = 3.14159f;
+	MsgTx.m_String = "Hello, flat Octave world!";
+	MsgTx.m_Vector = { 11, 22, 33, 44 };
+	
 
-	MsgTx.m_NestedStruct = std::make_unique<NestedT>();
-	MsgTx.m_NestedStruct->m_NestedInt = 47774;
+	MsgTx.m_NestedTable = std::make_unique<NestedT>();
+	MsgTx.m_NestedTable->m_NestedInt = 47774;
+
+	/* Test with a vector of strings: */
+	MsgTx.m_vstrStrings.push_back("Hello");
+	MsgTx.m_vstrStrings.push_back("World!");
+
+	/* Test with a vector of tables: */
+	MsgTx.m_vTables.push_back(std::make_unique<DataStructureT>());
+	MsgTx.m_vTables.back()->m_Int32 = 17;
+	MsgTx.m_vTables.back()->m_String = "Hey";
+	MsgTx.m_vTables.push_back(std::make_unique<DataStructureT>());
+	MsgTx.m_vTables.back()->m_Int32 = 19;
+	
+	//MsgTx.m_vTables.push_back(std::make_unique<DataStructureT>());
+	//MsgTx.m_vTables.back()->m_String = "Hey";
+
+	//MsgTx.m_NestedTable = std::make_unique<DataStructureT>();
+	////MsgTx.m_NestedTable->m_String = "asdf";
+	//MsgTx.m_NestedTable->m_Int32 = 19;
 
 	//MsgTx.m_int = 42;
 	//MsgTx.m_float = 3.14159f;
@@ -28,10 +47,13 @@ int main()
 
 	// Save it to disk:
 	flatbuffers::FlatBufferBuilder Builder;
-	Builder.FinishSizePrefixed(MessageString::Pack(Builder, &MsgTx));
+	Builder.FinishSizePrefixed(TestMessage::Pack(Builder, &MsgTx));
+
+	std::vector<uint8_t> BufferTx(Builder.GetSize());
+	std::memcpy(BufferTx.data(), Builder.GetBufferPointer(), Builder.GetSize());
 
 	std::string Filename = "FlatMessage.fb";
-	std::ofstream FileOut(Filename);
+	std::ofstream FileOut(Filename, std::ios::binary);
 	if (!FileOut)
 		std::cout << "Could not open file to save" << std::endl;
 	FileOut.write(reinterpret_cast<const char*>(Builder.GetBufferPointer()), Builder.GetSize());
@@ -59,7 +81,7 @@ int main()
 	// Unpack the received message:
 	//Message1T MsgRx;
 	//GetSizePrefixedMessage1(Buffer.data())->UnPackTo(&MsgRx);
-	MessageStringT MsgRx;
-	flatbuffers::GetSizePrefixedRoot<MessageString>(Buffer.data())->UnPackTo(&MsgRx);
+	TestMessageT MsgRx;
+	flatbuffers::GetSizePrefixedRoot<TestMessage>(Buffer.data())->UnPackTo(&MsgRx);
 	return 0;
 }

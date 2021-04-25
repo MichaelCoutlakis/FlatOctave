@@ -15,12 +15,12 @@ Directory = "C:\\Git\\Michael\\Octave\\FlatOctave\\WriteMyMessageFlatbuffer";
 FileName = "FlatMessage.fb";
 FullFileName = [Directory, "\\", FileName];
 
-fid = fopen(FullFileName);
+fid = fopen(FullFileName, "rb");
 fseek(fid, 0, SEEK_END);
 FileLength = ftell(fid);
 fseek(fid, 0, SEEK_SET);
 b = fread(fid, FileLength);
-
+fclose(fid);
 % Make sure b is bytes. Just makes life easier below:
 b = uint8(b);
 
@@ -39,6 +39,8 @@ b = uint8(b);
 
 % Load the library
 flatbuffers
+% Load the scrip:
+TestMessages_generated
 
 % See the reference for details:
 % FIXME may need to swapbytes sometimes? But just treat little endian only for now
@@ -65,9 +67,10 @@ N = int32(sizeVT / 2 - 2)  % Number of fields
 FieldOffsets = typecast(uint8(b((idxVT + 4):(idxVT + 4 + N*2-1))), "uint16")
 
 % Note: We would know this from the schema, but for now let's hard code it:
-VT_ = struct("Offsets", [4, 6, 8, 10, 12], "FieldNames", {{"m_String"; "m_Vector"; "m_Int32"; "m_float"; "m_NestedTable"}}); % NB the semicolon ; instead of , and {{}}
+##VT_ = struct("Offsets", [4, 6, 8, 10, 12], "FieldNames", {{"m_String"; "m_Vector"; "m_Int32"; "m_float"; "m_NestedTable"}}); % NB the semicolon ; instead of , and {{}}
+VT_ = struct("Offsets", [4], "FieldNames", {{"m_vTables"}}); % NB the semicolon ; instead of , and {{}}
 
-##% String:
+### String:
 ##if(FieldOffsets(1) ~= 0)  % Check that the field is not deprecated
 ##  idx_m_String_off = idxRT + uint32(FieldOffsets(1))
 ##  
@@ -102,18 +105,63 @@ VT_ = struct("Offsets", [4, 6, 8, 10, 12], "FieldNames", {{"m_String"; "m_Vector
 ##  Msg.(VT_.FieldNames{4}) = typecast(b(m_floatPosFieldOffset:m_floatPosFieldOffset + 3), "single");
 ##end
 
-% Nested Table:
-if(FieldOffsets(5) ~= 0)
-  % Seems this is the start of the buffer:
-  idx_m_NestedTable_off = idxRT + uint32(FieldOffsets(5))
+##% Nested Table:
+##if(FieldOffsets(5) ~= 0)
+##  % Seems this is the start of the buffer:
+##  idx_m_NestedTable_off = idxRT + uint32(FieldOffsets(5))
+##  
+####  % For nested Tables, ... ?
+####  offOuter = typecast(b(idx_m_NestedTable_off:idx_m_NestedTable_off + 3), "uint32")
+####  % This is where the 
+####  idx_m_NestedTable = idx_m_NestedTable_off + offOuter
+####  % For nested Table fields, ... ?
+####  len_m_NestedTable = ReadUint32(b(idx_m_NestedTable:idx_m_NestedTable+3))
+##  Msg.(VT_.FieldNames{5}) = OpenFlatBuffersReference_ReadNestedTable(b, idx_m_NestedTable_off)
+##end
+
+##% Nested Table:
+##if(FieldOffsets(1) ~= 0)
+##  % Seems this is the start of the buffer:
+##  idx_m_NestedTable_off = idxRT + uint32(FieldOffsets(1))
+##  
+##  
+##  Msg.(VT_.FieldNames{1}) = DataStructureT_Unpack(b, idx_m_NestedTable_off)
+##end
+
+### Vector of strings:
+##if(FieldOffsets(1) != 0)
+##  m_VectorPosFieldOffset = idxRT + uint32(FieldOffsets(1))
+##  
+##  m_VectorRootOffset = typecast(b(m_VectorPosFieldOffset:m_VectorPosFieldOffset + 3), "uint32")
+##  m_VectorPos = m_VectorPosFieldOffset + m_VectorRootOffset
+##  VectorLength = typecast(b(m_VectorPos:m_VectorPos + 3), "uint32")
+##  
+##  for(uK = 1:VectorLength)
+##    idxElemOffPos = m_VectorPos + 4 * uK
+##    idxElemK = idxElemOffPos + typecast(b(idxElemOffPos:idxElemOffPos + 3), "uint32")
+##    # In the case of a string, there is a uint32_t length followed by the string
+##    lenString = ReadUint32(b(idxElemK:idxElemK+3));
+##    Msg.(VT_.FieldNames{1}){uK} = cast(b(idxElemK + 4:idxElemK + 4 + lenString - 1), "char")';
+##  end
+##end
+
+# Vector of Tables:
+if(FieldOffsets(1) != 0)
+  m_VectorPosFieldOffset = idxRT + uint32(FieldOffsets(1))
   
-##  % For nested Tables, ... ?
-##  offOuter = typecast(b(idx_m_NestedTable_off:idx_m_NestedTable_off + 3), "uint32")
-##  % This is where the 
-##  idx_m_NestedTable = idx_m_NestedTable_off + offOuter
-##  % For nested Table fields, ... ?
-##  len_m_NestedTable = ReadUint32(b(idx_m_NestedTable:idx_m_NestedTable+3))
-  Msg.(VT_.FieldNames{5}) = OpenFlatBuffersReference_ReadNestedTable(b, idx_m_NestedTable_off)
+  m_VectorRootOffset = typecast(b(m_VectorPosFieldOffset:m_VectorPosFieldOffset + 3), "uint32")
+  m_VectorPos = m_VectorPosFieldOffset + m_VectorRootOffset
+  VectorLength = typecast(b(m_VectorPos:m_VectorPos + 3), "uint32")
+  
+  
+  for(uK = 1:VectorLength)
+    #typecast(b(m_VectorPos + 4:m_VectorPos + 4 + VectorLength * 4 -1), "char")
+    #b(m_VectorPos + 4:m_VectorPos + 4 + VectorLength * 4 -1)
+    idxElemOffPos = m_VectorPos + 4 * uK
+    idxElemK = idxElemOffPos + typecast(b(idxElemOffPos:idxElemOffPos + 3), "uint32")
+    DST = DataStructureT_Unpack(b, idxElemOffPos)
+    Msg.(VT_.FieldNames{1})(uK) = DataStructureT_Unpack(b, idxElemOffPos)
+  end
 end
 
 % Start of the buffer
