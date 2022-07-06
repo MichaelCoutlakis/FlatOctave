@@ -44,14 +44,26 @@ int main()
 	// Create a message to transmit and populate it with some data:
 	//Message1T MsgTx;
 	TestMessageT MsgTx;
-	MsgTx.m_Int32 = 42;
+	//MsgTx.m_VecFloat = { 4.2, 3.8 };
+	//MsgTx.m_VecInt = { 5, 6 };
+	//MsgTx.m_VecInt2 = { 7, 8, 9 };
+	//MsgTx.m_Int32 = 42;
 	//MsgTx.m_float = 3.14159f;
-	MsgTx.m_String = "asdfa";
+	//MsgTx.m_String = "asdfa";
 	//MsgTx.m_Nested = std::make_unique<NestedT>();
 	//MsgTx.m_Nested->m_NestedInt = 37;
+	//MsgTx.M_Int = 77;
 	//MsgTx.m_Nested->m_String = "Hello";
 	//MsgTx.m_Vector = { 11, 22, 33, 44 };
-	//
+	//MsgTx.m_VecString = { "hi", "to", "you" };
+	ElementT E1;
+	E1.m_Int = 7;
+
+	MsgTx.m_VecElement.push_back(std::make_unique<ElementT>(E1));
+
+	ElementT E2;
+	E2.m_Int = 8;
+	MsgTx.m_VecElement.push_back(std::make_unique<ElementT>(E2));
 
 	//MsgTx.m_NestedTable = std::make_unique<NestedT>();
 	//MsgTx.m_NestedTable->m_NestedInt = 47774;

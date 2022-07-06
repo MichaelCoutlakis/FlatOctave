@@ -13,6 +13,25 @@
 # but whenever I use that it output to the Octave console seems to stop which is
 # mind numbingly frustrating.
 
+# Read a buffer off disk:
+function Bytes = ReadBufferFromDisk(filename)
+  fid = fopen(filename);
+  fseek(fid, 0, SEEK_END);
+  FileLength = ftell(fid);
+  fseek(fid, 0, SEEK_SET);
+  Bytes = uint8(fread(fid, FileLength));
+endfunction
+
+# Add a size prefix to the bytes and then write to disk
+function AddSizePrefixAndWrite(Bytes, filename)
+  # Write a size prefix:
+  Bytes = [WriteUint32(length(Bytes)), Bytes]
+
+  # Save to file:
+  fid = fopen(filename, "wb");
+  fwrite(fid, Bytes);
+  fclose(fid);
+endfunction
 
 % Read an inline field, returning the default value if it's not there:
 function R = FlatBuffersReadScalar(bytes, DefaultVal)
@@ -59,9 +78,7 @@ function B = WriteString(str)
   if(bCol)
     str = str';
   end
-##  # First 4 bytes is the offset to the start. Most cases it's just 4?
-##  B = WriteUint32(4);
-  # Next 4 bytes is the length:
+  # First 4 bytes is the length:
   B = WriteUint32(length(str));
   # Now the string characters: There's always a null padding at the end:
   B = [B, uint8(str), uint8(0)];

@@ -23,7 +23,7 @@ fseek(fid, 0, SEEK_SET);
 b = fread(fid, FileLength);
 b = uint8(b);
 
-% Load the scrip:
+% Load the script:
 TestMessages_generated
 % Note: 5 is the index of the buffer start after the size prefix
 Msg = TestMessageT_Unpack(b, 5)

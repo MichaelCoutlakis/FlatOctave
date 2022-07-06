@@ -18,8 +18,22 @@ TestMessages_generated
 ##B = NestedT_Pack(T)
 
 # Test Message:
-T.m_Int32 = 47774;
-T.m_String = "Hello, this is a string from Octave!";
+##T.m_VecFloat = [4.2, 3.8];
+##T.m_Int = 13;
+##T.m_str = "Hello World!";
+##T.m_float = 3.14159;
+##T.m_VecFloat2 = [3.7, 8.2];
+##T.m_Nested.m_NestedInt = 32;
+##T.M_Int = 77;
+##T.m_VecInt = [7, 8];
+##T.m_VecInt2 = [17, 18];
+#T.m_String = "Hello, this is a string from Octave!";
+
+##T.m_VecString{1, 1} = "asdf";
+##T.m_VecString{1, 2} = "hi";
+
+T.m_VecElement(1).m_Int = 13;
+T.m_VecElement(2).m_Int = 14;
 
 B = TestMessageT_Pack(T)
 

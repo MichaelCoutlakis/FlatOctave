@@ -2,18 +2,16 @@
 
 namespace TestMessages;
 
-//table Nested
-//{
-//	m_NestedInt:int32;
-//	m_String:string;
-//}
+table Element
+{
+	m_Int:int32;
+}
 
 // Test Message with various fields:
 table TestMessage
 {
-	m_Int32:int32;
-	m_String:string;
-	//m_Nested:Nested;
+	m_VecElement:[Element];
+	//m_VecString:[string];
 }
 
 
